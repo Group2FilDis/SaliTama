@@ -1,0 +1,225 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Checker</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+           body {
+            background-color: #f8f9fa; /* Set the background color */
+        }
+        .container {
+            background-color: #fff; /* Set the background color of the container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow to the container */
+        }
+        .error {
+            color: red;
+        }
+        .suggestion {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Sintaks Sakto</h1>
+        <div class="form-group">
+            <label for="sentence">Maglagay nang pangungusap:</label>
+            <input type="text" class="form-control" id="sentence">
+        </div>
+        <button class="btn btn-primary mb-3" onclick="checkGrammar()">Check </button>
+        <div id="error-messages"></div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (optional, for some Bootstrap features) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function grammar_checker(sentence) {
+            var errors = [];
+
+            // Check if the sentence starts with a capital letter
+            if (!sentence[0].match(/[A-Z]/)) {
+                errors.push("Error: Ang pangungusap ay dapat magsimula sa malaking titik.");
+            }
+
+            // Check if the sentence ends with proper punctuation
+            if (!/[.!?]$/.test(sentence)) {
+                errors.push("Error: Ang pangungusap ay dapat magtapos sa tamang bantas.");
+            }
+
+            // Check for common Filipino grammar mistakes
+            if (/\bng\b/.test(sentence)) {
+                errors.push("Suggestion: Gamitin ang 'ng' ng tama sa pangungusap. Palitan ng nang.");
+            }
+            if (/\bkong\b/.test(sentence)) {
+                errors.push("Suggestion: Gamitin ang 'kong' ng tama sa pangungusap. Palitan ng kung.");
+            }
+            if (/\brin\b/.test(sentence)) {
+                errors.push("Suggestion: Gamitin ang 'rin' ng tama sa pangungusap. Palitan ng din.");
+            }
+            if (/\bsa\s(sa|ng)\b/.test(sentence)) {
+                errors.push("Suggestion: Tiyakin na tama ang paggamit ng 'sa'.");
+            }
+            if (/\bsa\s+ng\s+/.test(sentence)) {
+                errors.push("Suggestion: Tiyakin na tama ang paggamit ng 'sa' at 'ng'.");
+            }
+            if (/\bako\b/.test(sentence)) {
+                errors.push("Suggestion: Gamitin ang 'ako' nang tama sa pangungusap.");
+            }
+
+            return errors;
+        }
+
+        function checkGrammar() {
+            var sentence = document.getElementById('sentence').value;
+            var errors = grammar_checker(sentence);
+            var errorMessages = document.getElementById('error-messages');
+            errorMessages.innerHTML = '';
+
+            if (errors.length === 0) {
+                errorMessages.innerHTML = "<p>No grammar errors found.</p>";
+            } else {
+                errors.forEach(function(error) {
+                    errorMessages.innerHTML += "<p class='error'>" + error + "</p>";
+                });
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Checker</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Set the background color */
+        }
+        .container {
+            background-color: #fff; /* Set the background color of the container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow to the container */
+        }
+        .sidebar {
+            background-color: #343a40; /* Set the background color of the sidebar */
+            color: #fff; /* Set text color to white for better contrast */
+            height: 100vh; /* Set sidebar height to full viewport height */
+            padding: 20px;
+        }
+        .error {
+            color: red;
+        }
+        .suggestion {
+            color: green;
+        }
+        p {
+text-size-adjust: 50px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <h2>Epekto ng mga Miskonsepsyon sa Paggamit ng Wika: Pagsusuri at Pagwasto ng Salitang Filipino</h2>
+                <!-- Add sidebar content here -->
+                <p> Ang mga miskonsepsyon sa paggamit ng wika ay maaaring magdulot ng hindi wastong pag-unawa sa tamang gamit ng mga salita at estruktura ng pangungusap. Ito ay maaaring humantong sa maling pagpapakahulugan ng mensahe at kakulangan sa pagsasalin ng impormasyon. Sa pamamagitan ng pagsusuri at pagwawasto ng salitang Filipino, maaaring mabigyang linaw ang tamang gamit ng wika at maiwasan ang mga pagkakamali.
+
+                    Bilang tugon sa suliraning ito, isang solusyon ay ang paggamit ng "Sintaks Sakto," isang Filipino grammar checker. Ang Sintaks Sakto ay isang tool na naglalayong tumulong sa pagtukoy at pagwawasto ng mga sintaksikal na pagkakamali sa pagsusulat sa Filipino. Ito ay makakatulong sa mga manunulat na masigurong ang kanilang mga akda ay wasto at maliwanag sa larangan ng gramatika at sintaks.
+          
+                    Ang website na ito ay isinagawa ng pangkat 3 ng seksyong BSNAMENG-2202 sa asignaturang Filipino sa Iba't Ibang Disiplina. Marami pang pagkukulang ngunit tiyak ang kawastuhan at kaepektibo ng website na ito sa kasalukuyang kagamitan.</p>
+            </div>
+            <!-- Main content area -->
+            <div class="col-md-9">
+                <div class="container mt-5">
+                    <h1 class="mb-4">Sintaks Sakto</h1>
+                    <div class="form-group">
+                        <label for="sentence">Maglagay nang pangungusap:</label>
+                        <input type="text" class="form-control" id="sentence">
+                    </div>
+                    <button class="btn btn-primary mb-3" onclick="checkGrammar()">Check </button>
+                    <div id="error-messages"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (optional, for some Bootstrap features) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function grammar_checker(sentence) {
+            var errors = [];
+
+            // Check if the sentence starts with a capital letter
+            if (!sentence[0].match(/[A-Z]/)) {
+                errors.push("Error: Ang pangungusap ay dapat magsimula sa malaking titik.");
+            }
+
+            // Check if the sentence ends with proper punctuation
+            if (!/[.!?]$/.test(sentence)) {
+                errors.push("Error: Ang pangungusap ay dapat magtapos sa tamang bantas.");
+            }
+
+            // Check for common Filipino grammar mistakes
+            if (/\bng\b/.test(sentence)) {
+                errors.push("Suggestion: Gamitin ang 'ng' ng tama sa pangungusap. Palitan ng nang.");
+            }
+            if (/\bkong\b/.test(sentence)) {
+                errors.push("Suggestion: Gamitin ang 'kong' ng tama sa pangungusap. Palitan ng kung.");
+            }
+            if (/\brin\b/.test(sentence)) {
+                errors.push("Suggestion: Gamitin ang 'rin' ng tama sa pangungusap. Palitan ng din.");
+            }
+            if (/\bsa\s(sa|ng)\b/.test(sentence)) {
+                errors.push("Suggestion: Tiyakin na tama ang paggamit ng 'sa'.");
+            }
+            if (/\bsa\s+ng\s+/.test(sentence)) {
+                errors.push("Suggestion: Tiyakin na tama ang paggamit ng 'sa' at 'ng'.");
+            }
+            if (/\bako\b/.test(sentence)) {
+                errors.push("Suggestion: Gamitin ang 'ako' nang tama sa pangungusap.");
+            }
+
+            return errors;
+        }
+
+        function checkGrammar() {
+            var sentence = document.getElementById('sentence').value;
+            var errors = grammar_checker(sentence);
+            var errorMessages = document.getElementById('error-messages');
+            errorMessages.innerHTML = '';
+
+            if (errors.length === 0) {
+                errorMessages.innerHTML = "<p>No grammar errors found.</p>";
+            } else {
+                errors.forEach(function(error) {
+                    errorMessages.innerHTML += "<p class='error'>" + error + "</p>";
+                });
+            }
+        }
+    </script>
+</body>
+</html>
